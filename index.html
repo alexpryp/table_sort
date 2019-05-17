@@ -6,9 +6,125 @@
 	<title>Document</title>
 </head>
 <body>
-	<button onclick="createTable()">Создать таблицу</button>
-	<button onclick="sort()">Сортировка по убыванию</button>
-	<button onclick="sort()">Сортировка по возрастанию</button>
-	<div class="wrapper-table"></div>
+	<h1>Таблица с сортировкой</h1>
+	<div class="buttons">
+		<input type="button" onclick="sort(0, this)" value="Сортировать по имени">
+		<input type="button" onclick="sort(1, this)" value="Сортировать по фамилии">
+		<input type="button" onclick="sort(2, this)" value="Сортировать по отчеству">
+		<input type="button" onclick="sort(3, this)" value="Сортировать по возрасту">
+	</div>
+	<div id="table-wrapper">
+		<table>
+			<thead>
+				<th>Имя</th><th>Фамилия</th><th>Отчество</th><th>Возраст</th>
+			</thead>
+			<tbody>
+				<tr><td>Ковалёв</td><td>Евгений</td><td>Алексеевич</td><td>24</td><tr>
+				<tr><td>Шубин</td><td>Тарас</td><td>Ярославович</td><td>53</td><tr>
+				<tr><td>Антонов</td><td>Эрик</td><td>Леонидович</td><td>18</td><tr>
+				<tr><td>Житар</td><td>Зураб</td><td>Владимирович</td><td>33</td><tr>
+				<tr><td>Тимошенко</td><td>Елисей</td><td>Романович</td><td>57</td><tr>
+				<tr><td>Колесник</td><td>Гарри</td><td>Владимирович</td><td>44</td><tr>
+				<tr><td>Павлив</td><td>Борис</td><td>Брониславович</td><td>22</td><tr>
+				<tr><td>Прохоров</td><td>Виктор</td><td>Леонидович</td><td>81</td><tr>
+				<tr><td>Туров</td><td>Ярослав</td><td>Платонович</td><td>14</td><tr>
+				<tr><td>Потапов</td><td>Эдуард</td><td>Сергеевич</td><td>39</td><tr>
+				<tr><td>Коломоец</td><td>Стефан</td><td>Эдуардович</td><td>73</td><tr>
+				<tr><td>Рябов</td><td>Эдуард</td><td>Сергеевич</td><td>47</td><tr>
+				<tr><td>Хитрук</td><td>Абрам</td><td>Юхимович</td><td>28</td><tr>
+				<tr><td>Ершов</td><td>Клаус</td><td>Сергеевич</td><td>18</td><tr>
+				<tr><td>Шуфрич</td><td>Эдуард</td><td>Юхимович</td><td>27</td><tr>
+				<tr><td>Воробьёв</td><td>Лев</td><td>Петрович</td><td>43</td><tr>
+				<tr><td>Лебедев</td><td>Эрик</td><td>Фёдорович</td><td>61</td><tr>
+				<tr><td>Субботин</td><td>Людовик</td><td>Ярославович</td><td>17</td><tr>
+				<tr><td>Емельянов</td><td>Артур</td><td>Викторович</td><td>10</td><tr>
+				<tr><td>Павлик</td><td>Эрик</td><td>Брониславович</td><td>44</td><tr>
+				<tr><td>Шумейко</td><td>Эрик</td><td>Юхимович</td><td>28</td><tr>
+				<tr><td>Дидовец</td><td>Константин</td><td>Романович</td><td>19</td><tr>
+				<tr><td>Павлик</td><td>Гордей</td><td>Евгеньевич</td><td>45</td><tr>
+				<tr><td>Суворов</td><td>Павел</td><td>Станиславович</td><td>18</td><tr>
+				<tr><td>Хитрук</td><td>Вениамин</td><td>Алексеевич</td><td>29</td><tr>
+				<tr><td>Лобанов</td><td>Орландо</td><td>Григорьевич</td><td>46</td><tr>
+				<tr><td>Аксёнов</td><td>Владлен</td><td>Брониславович</td><td>11</td><tr>
+				<tr><td>Петров</td><td>Валерий</td><td>Викторович</td><td>47</td><tr>
+				<tr><td>Барановский</td><td>Лукиллиан</td><td>Дмитриевич</td><td>16</td><tr>
+				<tr><td>Гамула</td><td>Борис</td><td>Ярославович</td><td>30</td><tr>
+				<tr><td>Соловьёв</td><td>Иннокентий</td><td>Романович</td><td>62</td><tr>
+				<tr><td>Лукашенко</td><td>Жерар</td><td>Андреевич</td><td>48</td><tr>
+				<tr><td>Бобылёв</td><td>Казбек</td><td>Брониславович</td><td>19</td><tr>
+				<tr><td>Скоропадский</td><td>Гарри</td><td>Викторович</td><td>20</td><tr>
+				<tr><td>Пономарёв</td><td>Николай</td><td>Станиславович</td><td>49</td><tr>
+				<tr><td>Соколов</td><td>Эдуард</td><td>Виталиевич</td><td>31</td><tr>
+				<tr><td>Спивак</td><td>Абрам</td><td>Вадимович</td><td>50</td><tr>
+				<tr><td>Андреев</td><td>Яромир</td><td>Петрович</td><td>15</td><tr>
+				<tr><td>Некрасов</td><td>Юрий</td><td>Вадимович</td><td>12</td><tr>
+				<tr><td>Кулишенко</td><td>Виль</td><td>Платонович</td><td>63</td><tr>
+				<tr><td>Блинов</td><td>Гордей</td><td>Максимович</td><td>51</td><tr>
+				<tr><td>Потапов</td><td>Василий</td><td>Васильевич</td><td>32</td><tr>
+				<tr><td>Романенко</td><td>Родион</td><td>Михайлович</td><td>52</td><tr>
+				<tr><td>Лановой</td><td>Владислав</td><td>Викторович</td><td>21</td><tr>
+				<tr><td>Горбачёв</td><td>Юлиан</td><td>Владимирович</td><td>20</td><tr>
+				<tr><td>Федункив</td><td>Филипп</td><td>Андреевич</td><td>33</td><tr>
+				<tr><td>Денисов</td><td>Пётр</td><td>Борисович</td><td>21</td><tr>
+				<tr><td>Виноградов</td><td>Юрий</td><td>Данилович</td><td>13</td><tr>
+				<tr><td>Исаев</td><td>Павел</td><td>Анатолиевич</td><td>14</td><tr>
+				<tr><td>Полищук</td><td>Данила</td><td>Иванович</td><td>34</td><tr>
+				<tr><td>Романов</td><td>Прохор</td><td>Леонидович</td><td>64</td><tr>
+				<tr><td>Бондаренко</td><td>Яромир</td><td>Валерьевич</td><td>53</td><tr>
+				<tr><td>Фролов</td><td>Устин</td><td>Петрович</td><td>22</td><tr>
+				<tr><td>Пестов</td><td>Харитон</td><td>Романович</td><td>22</td><tr>
+				<tr><td>Андреев</td><td>Ждан</td><td>Станиславович</td><td>23</td><tr>
+				<tr><td>Воронов</td><td>Роберт</td><td>Сергеевич</td><td>35</td><tr>
+				<tr><td>Чикольба</td><td>Руслан</td><td>Алексеевич</td><td>24</td><tr>
+				<tr><td>Хованский</td><td>Ян</td><td>Станиславович</td><td>14</td><tr>
+				<tr><td>Бачей</td><td>Герасим</td><td>Львович</td><td>25</td><tr>
+				<tr><td>Яворивский</td><td>Гавриил</td><td>Юхимович</td><td>54</td><tr>
+				<tr><td>Линник</td><td>Ждан</td><td>Сергеевич</td><td>36</td><tr>
+				<tr><td>Харитонов</td><td>Николай</td><td>Ярославович</td><td>26</td><tr>
+				<tr><td>Ефремов</td><td>Дан</td><td>Платонович</td><td>65</td><tr>
+				<tr><td>Щербак</td><td>Гордей</td><td>Богданович</td><td>27</td><tr>
+				<tr><td>Бердник</td><td>Юрий</td><td>Станиславович</td><td>28</td><tr>
+				<tr><td>Коцюбинский</td><td>Болеслав</td><td>Леонидович</td><td>23</td><tr>
+				<tr><td>Сердюк</td><td>Болеслав</td><td>Ярославович</td><td>13</td><tr>
+				<tr><td>Абрамов</td><td>Лаврентий</td><td>Романович</td><td>29</td><tr>
+				<tr><td>Ильин</td><td>Юлий</td><td>Юхимович</td><td>37</td><tr>
+				<tr><td>Чикольба</td><td>Болеслав</td><td>Алексеевич</td><td>56</td><tr>
+				<tr><td>Самсонов</td><td>Прохор</td><td>Валерьевич</td><td>30</td><tr>
+				<tr><td>Иваненко</td><td>Марк</td><td>Данилович</td><td>66</td><tr>
+				<tr><td>Скоропадский</td><td>Спартак</td><td>Юхимович</td><td>15</td><tr>
+				<tr><td>Ерёменко</td><td>Карим</td><td>Артёмович</td><td>31</td><tr>
+				<tr><td>Чумак</td><td>Роберт</td><td>Борисович</td><td>38</td><tr>
+				<tr><td>Беляков</td><td>Жигер</td><td>Сергеевич</td><td>12</td><tr>
+				<tr><td>Петровский</td><td>Клим</td><td>Викторович</td><td>24</td><tr>
+				<tr><td>Лихачёв</td><td>Дмитрий</td><td>Юхимович</td><td>32</td><tr>
+				<tr><td>Давыдов</td><td>Зиновий</td><td>Васильевич</td><td>67</td><tr>
+				<tr><td>Гущин</td><td>Юлиан</td><td>Львович</td><td>39</td><tr>
+				<tr><td>Ершов</td><td>Эрик</td><td>Вадимович</td><td>33</td><tr>
+				<tr><td>Яковенко</td><td>Тимофей</td><td>Васильевич</td><td>57</td><tr>
+				<tr><td>Галкин</td><td>Добрыня</td><td>Данилович</td><td>34</td><tr>
+				<tr><td>Белов</td><td>Захар</td><td>Платонович</td><td>11</td><tr>
+				<tr><td>Кабанов</td><td>Динар</td><td>Дмитриевич</td><td>35</td><tr>
+				<tr><td>Бачей</td><td>Нестор</td><td>Эдуардович</td><td>16</td><tr>
+				<tr><td>Ильин</td><td>Вениамин</td><td>Иванович</td><td>36</td><tr>
+				<tr><td>Колобов</td><td>Борис</td><td>Евгеньевич</td><td>40</td><tr>
+				<tr><td>Дидовец</td><td>Юрий</td><td>Данилович</td><td>37</td><tr>
+				<tr><td>Гриневская</td><td>Жигер</td><td>Евгеньевич</td><td>25</td><tr>
+				<tr><td>Игнатьев</td><td>Борис</td><td>Богданович</td><td>38</td><tr>
+				<tr><td>Моисеенко</td><td>Аким</td><td>Викторович</td><td>59</td><tr>
+				<tr><td>Волков</td><td>Юрий</td><td>Платонович</td><td>41</td><tr>
+				<tr><td>Кулибаба</td><td>Яков</td><td>Валерьевич</td><td>68</td><tr>
+				<tr><td>Савенко</td><td>Жигер</td><td>Викторович</td><td>17</td><tr>
+				<tr><td>Притула</td><td>Адриан</td><td>Васильевич</td><td>39</td><tr>
+				<tr><td>Коцюбинский</td><td>Вениамин</td><td>Богданович</td><td>40</td><tr>
+				<tr><td>Колесник</td><td>Игорь</td><td>Андреевич</td><td>42</td><tr>
+				<tr><td>Хохлов</td><td>Эрик</td><td>Виталиевич</td><td>10</td><tr>
+				<tr><td>Никонов</td><td>Яков</td><td>Иванович</td><td>60</td><tr>
+				<tr><td>Бородай</td><td>Феликс</td><td>Петрович</td><td>26</td><tr>
+			</tbody>
+		</table>
+	</div>
+
+	<link rel="stylesheet" type="text/css" href ="style.css">
+	<script src="script.js"></script>
 </body>
 </html>
