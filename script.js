@@ -1,42 +1,65 @@
 "use strict"
 
-let up = "&#9650";
-let down = "&#9660";
+let theadTr = document.querySelector('#table-wrapper thead tr');
 
 
-function sort(numbCol, button) {
-	let tbody = document.getElementsByTagName('tbody')[0];
-	let rows = [];
+function sort(event) {
+	let target = event.target;
+	let listHeadTh = theadTr.getElementsByTagName('th');
+	let numOfChildTh = 0;
+	let tbody = document.querySelector('#table-wrapper tbody');
+	let arrTr = [].slice.call(tbody.querySelectorAll('tr'));
+	let tHspan;
 
-	console.log(numbCol);
+	if (target.tagName == "SPAN") {
+		target = target.closest("th");
+	};
 
-	for (let i = tbody.children.length - 1; i >= 0; i--) {
-		let child = tbody.removeChild(tbody.children[i]);
-		rows.push(child);
+	for (let i = 0; i < listHeadTh.length; i++) {
+		if (listHeadTh[i] == target) {
+			numOfChildTh = i;
+		}
 	}
 
-	if (numbCol < 3) {
-		rows.sort(function (a, b) {
-			console.log(a.innerHTML);
-			console.log(b.innerHTML);
-			a = a.children[numbCol];
-			b = b.children[numbCol];
-			a = a.innerHTML;
-			b = b.innerHTML;
-	    	return a.localeCompare(b);
-		})
+	tHspan = listHeadTh[numOfChildTh].children[0];
+
+	for(let k = 0; k < listHeadTh.length; k++) {
+		if (k == numOfChildTh) {
+			continue;
+		}
+		listHeadTh[k].querySelector('span').innerHTML = "";
 	}
 
-	for (var i = 0; i < rows.length; i++) {
-		tbody.appendChild(rows[i]);
+	if (tHspan.innerHTML == "" || tHspan.innerHTML == "▼") {
+		tHspan.innerHTML = "&#9650"
+
+		if (target.dataset.type == "number") {
+			arrTr.sort(function(a, b) {
+				return a.children[numOfChildTh].innerHTML - b.children[numOfChildTh].innerHTML;
+			});
+		} else if (target.dataset.type == "string") {
+			arrTr.sort(function(a, b) {
+				return a.children[numOfChildTh].innerHTML.localeCompare(b.children[numOfChildTh].innerHTML);
+			});
+		}
+	} else if (tHspan.innerHTML == "▲") {
+		tHspan.innerHTML = "&#9660";
+
+		if (target.dataset.type == "number") {
+			arrTr.sort(function(a, b) {
+				return b.children[numOfChildTh].innerHTML - a.children[numOfChildTh].innerHTML;
+			});
+		} else if (target.dataset.type == "string") {
+			arrTr.sort(function(a, b) {
+				return b.children[numOfChildTh].innerHTML.localeCompare(a.children[numOfChildTh].innerHTML);
+			});
+		}
+	}
+
+	for (let j = 0; j < arrTr.length; j++) {
+		tbody.appendChild(arrTr[j]);
 	}
 }
 
 
-/*&#9650
-
-&#9660*/
-
-/*list.sort(function (a, b) {
-    return ('' + a.attr).localeCompare(b.attr);
-})*/
+theadTr.addEventListener("click", sort);
